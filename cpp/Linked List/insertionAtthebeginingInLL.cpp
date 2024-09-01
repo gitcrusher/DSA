@@ -27,13 +27,14 @@ using namespace std;
     cout << endl;
 }
 int main (){
-    // int n ;
-    // cout<<"n = ";
-    // cin>>n;
+    int n ;
+    cout<<"n = ";
+    cin>>n;
     node *head =   NULL;
     head= insertbegin(head, 30);
-    head = insertbegin(head, 20);
-    head = insertbegin(head, 10);
+    head = insertbegin(head, n);
+    n++;
+    head = insertbegin(head, n);
     printList(head);
 return 0;
 }
