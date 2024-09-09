@@ -3,7 +3,7 @@ using namespace std;
     class node{
         public:
         int data ;
-        node* next;\
+        node* next;
         node(int x){
             data = x;  
             next= nullptr;
@@ -21,18 +21,24 @@ node * convert(vector<int>&arr){
     return head;
 }
 
-
+int length(node* head){
+    int count = 0;
+    node*temp = head ;
+    while (temp){
+        cout<<temp->data<<" ";
+        temp = temp -> next;
+        count++;
+    }
+    cout<<endl;
+    cout<<"length of linked list: ";
+    return count ;
+}
 
 int main (){
     vector<int> arr = {1,2,3,4,5,6,7,8,9};
-    node* y = convert(arr);
-
-   //traversal 
-    node* temp = y ; 
-    while(temp){
-        cout<<temp->data<<" ";
-        temp = temp -> next;
-    }
+    node* head = convert(arr);
+    cout<<endl;
+    cout<<length(head);
     
 return 0;
 }
