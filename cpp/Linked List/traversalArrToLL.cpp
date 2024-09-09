@@ -24,6 +24,8 @@ node * convert(vector<int>&arr){
 int main (){
     vector<int> arr = {1,2,3,4,5,6,7,8,9};
     node* y = convert(arr);
+
+   //traversal 
     node* temp = y ; 
     while(temp){
         cout<<temp->data<<" ";
