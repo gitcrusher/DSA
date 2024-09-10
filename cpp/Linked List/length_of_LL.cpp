@@ -25,12 +25,9 @@ int length(node* head){
     int count = 0;
     node*temp = head ;
     while (temp){
-        cout<<temp->data<<" ";
         temp = temp -> next;
         count++;
     }
-    cout<<endl;
-    cout<<"length of linked list: ";
     return count ;
 }
 
