@@ -25,7 +25,7 @@ int length(node* head){
     int count = 0;
     node*temp = head ;
     while (temp){
-        temp = temp -> next;
+        temp = temp -> next;    
         count++;
     }
     return count ;
