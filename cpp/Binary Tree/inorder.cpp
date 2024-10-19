@@ -21,7 +21,7 @@ void inorder(Node* root)
 if (root == nullptr)
 {
 return;
-}
+}7
 
 inorder(root->left);
 cout << root->data << " ";

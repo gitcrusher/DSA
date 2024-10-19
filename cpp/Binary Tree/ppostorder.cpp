@@ -1,10 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-struct Node{
-    int data ;
-    Node* next ;
-    Node* left;
-};
+    struct node{
+        
+    };
 int main (){
     
 return 0;
