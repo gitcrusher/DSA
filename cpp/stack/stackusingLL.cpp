@@ -16,9 +16,14 @@ int main (){
     }else{
         cout<<"stack is input";
     }
+    while (!mystack.empty()){
     
+        cout<<mystack.top()<<" ";
+        mystack.pop();
+    
+    }
     cout<<endl;
-
+    
     if(mystack.empty()){
     cout<<"stack is empty";
     }
