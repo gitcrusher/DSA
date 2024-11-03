@@ -54,4 +54,4 @@ print(a,n);
 cout<<"sorted array";
 print(a,n);
 return 0;
-}
+}       
