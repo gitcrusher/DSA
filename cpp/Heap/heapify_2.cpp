@@ -1,53 +1,116 @@
-#include<bits/stdc++.h>
+// #include<bits/stdc++.h>
+// using namespace std;
+// void heap(int a[],int i , int n){
+//         int largest = i;
+//         int left = 2*i+1;
+//         int right = 2*i+2;
+//         if(left<=n && a[left]> a[largest]){
+//             largest = left;
+//         }
+//         if(right<=n && a[right]> a[largest]){
+//             largest = right;
+//         }
+//         if(largest!=i){
+//             swap(a[i], a[largest]);
+//             heap(a, n, largest);
+//         }
+//     }
+
+//     void buildHeap(int a[], int n){
+//         for(int i=n/2-1;i>=0;i--){
+//             heap(a, n, i);
+//         }
+//     }
+
+//     void heapSort(int a[], int n){
+//         buildHeap(a, n);
+//         for(int i = n-1; i > 0;i--){
+//             swap(a[0],a[i]);
+//             heap(a,1,i-0);  
+//         }
+//     }
+
+//     void print(int a [], int n){
+//         for(int i = 0; i < n; i++){
+//             cout<<a[i]<<" ";
+//         }
+//         cout<<endl;
+//     }
+// int main (){
+//     int n;
+//     int a[n];
+//     cin>>n;
+
+// for(int i = 0; i <= n; i++){
+//     cin>>a[i];
+// }
+// cout<<"orignal array";
+// print(a,n);
+// cout<<"sorted array";
+// print(a,n);
+// return 0;
+// }
+
+
+#include <bits/stdc++.h>
 using namespace std;
-void heap(int a[],int i ; int n){
-        int left = 2*i+1
-        int right = 2*i+2;
-        int largest = i;
-        if(left<n && arr[left]> arr[largest]){
-            largest = left;
-        }
-        if(right<n && arr[right]> arr[largest]){
-            largest = right;
-        }
-        if(largest!=i){
-            swap(a[i], a[largest]);
-            heap(a, n, largest);
-        }
-    }
 
-    void buildHeap(int a[], int n){
-        for(int i=n/2;i>=1;i--){
-            heap(a, n, i);
-        }
-    }
+void heapify(int a[], int n, int i) {
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
 
-    void heapSort(int a[], int n){
-        buildHeap(a, n);
-        for(int i = n; i > 1;i--){
-            swap(a[1],a[i]);
-            heap(a,1,i-1);  
-        }
+    if (left < n && a[left] > a[largest]) {
+        largest = left;
     }
-
-    void print(int a [], int n){
-        for(int i = 1; i < n; i++){
-            cout<<a[i]<<" ";
-        }
-        cout<<endl;
+    if (right < n && a[right] > a[largest]) {
+        largest = right;
     }
-int main (){
-    int a[n];
-int n;
-cin>>n;
-
-for(int i = 1; i <= n; i++){
-    cin>>a[i];
+    if (largest != i) {
+        swap(a[i], a[largest]);
+        heapify(a, n, largest);
+    }
 }
-cout<<"orignal array";
-print(a,n);
-cout<<"sorted array";
-print(a,n);
-return 0;
-return 0;
+
+void buildHeap(int a[], int n) {
+    for (int i = n / 2 - 1; i >= 0; i--) {
+        heapify(a, n, i);
+    }
+}
+
+void heapSort(int a[], int n) {
+    buildHeap(a, n);
+    for (int i = n - 1; i > 0; i--) {
+        swap(a[0], a[i]);
+        heapify(a, i, 0);
+    }
+}
+
+void print(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    int a[n];
+    cout << "Enter the elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    cout << "Original array: ";
+    print(a, n);
+
+    heapSort(a, n);
+
+    cout << "Sorted array: ";
+    print(a, n);
+
+    return 0;
 }
