@@ -25,8 +25,8 @@ int main (){
         for(int j = 0 ; j < 4 ; j++){
         cin>>arr[i][j];
         }
-        fwarshall(arr);
-        cout<<endl;
+        
     }
+        fwarshall(arr); 
 return 0;
 }
