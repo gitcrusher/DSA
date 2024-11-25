@@ -57,5 +57,5 @@ int main (){
     cout<<"BFS";
     cin>>temp;
     g.bfs(temp);
-    return 0;
+    return 0;0
 }

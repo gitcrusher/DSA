@@ -80,9 +80,20 @@ void buildHeap(int a[], int n) {
 
 void heapSort(int a[], int n) {
     buildHeap(a, n);
-    for (int i = n - 1; i > 0; i--) {
-        swap(a[0], a[i]);
-        heapify(a, i, 0);
+    sort(a,a+n,greater<int>());
+}
+
+void deletemin(int a[], int& n) {
+    int minelem = 100;
+    int index= -1;
+    for(int i = 0 ; i < n ; i++){
+        if(a[i]<a[minelem]){
+            minelem = i ;
+            index = i;
+        }
+        a[index]= a[n-1];
+        n--;
+        heapify(a, n, index);
     }
 }
 

@@ -22,7 +22,7 @@ maxheapify(a,largest,hsize);
 }
 void buildmaxheap(int a[],int n)
 {
-for(int i=n/2;i>=1;i--)
+for(int i=n/2;i>=0;i++)
 {
 maxheapify(a,i,n);
 }
@@ -32,8 +32,7 @@ void heapsort(int a[],int n)
 buildmaxheap(a,n);
 for(int i=n;i>1;i--)
 {
-swap(a[1],a[i]);
-maxheapify(a,1,i-1);
+
 }
 }
 void print(int a[],int n)
