@@ -12,7 +12,7 @@ public class InsertionSort {
             arr[j+1]= temp;
         }
     }
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("length: ");
