@@ -28,7 +28,6 @@ class MergeSort {
         // Copy remaining elements from left half
         while (left <= mid) {
             temp[k++] = arr[left++];
-        }
         
         // Copy remaining elements from right half
         while (right <= high) {
