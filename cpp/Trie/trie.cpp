@@ -1,51 +1,58 @@
-#incldue<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-class TrieNode{
-    public:
-        char data;// for string to be stored as char
-        TrieNode* children[26]; // number of childre in trie datastructure (its just like treen only).
-        bool isTerminal; // will be used into searching space when we have to check for wether char is the end or not.
 
-        TrieNode(har ch){//contstructor 
-            data = ch;
-            for(int i - 0 ; i < 26; i ++){
-                children[i] = NULL; // we want every upcoming char values to be null .
-            }
-            isTerminal = false;
+class TrieNode {
+public:
+    char data;
+    TrieNode* children[26];
+    bool isTerminal;
+
+    TrieNode(char ch) {
+        data = ch;
+        for (int i = 0; i < 26; i++) {
+            children[i] = NULL;
         }
-} ;
+        isTerminal = false;
+    }
+};
 
-class Trie{
+class Trie {
+public:
     TrieNode* root;
 
-    void insertUtil(TrieNode* root, string word){
-        //base case
-        if(word.length()==0){
-            root->isterminal=true;
+    Trie() {
+        root = new TrieNode('\0');
+    }
+
+    void insertUtil(TrieNode* node, string word) {
+        if (word.length() == 0) {
+            node->isTerminal = true;
+            return;
         }
-        //asumption the word will be in small case
-        int index = word[0]-'a';
+
+        int index = word[0] - 'a';
         TrieNode* child;
 
-        if(root->children[index] !=NULL){
-            //present
-            child = root->children[index];
-        }else{
+        if (node->children[index] != NULL) {
+            child = node->children[index];
+        } else {
             child = new TrieNode(word[0]);
-            root->children[index]= child;
+            node->children[index] = child;
         }
-        //recursion
-        insertUtil(child,word.substr(1));
 
+        insertUtil(child, word.substr(1));
     }
 
-    void insertWord(String word){
-        insertUtil(root,word);
+    void insertWord(string word) {
+        insertUtil(root, word);
     }
-}
+};
 
+int main() {
+    Trie* t = new Trie();
+    t->insertWord("abcd");
+    t->insertWord("abduct");
 
-int main (){
-
+    cout << "Word inserted successfully!" << endl;
     return 0;
 }
