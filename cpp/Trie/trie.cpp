@@ -19,6 +19,23 @@ class Trie{
     TrieNode* root;
 
     void insertUtil(TrieNode* root, string word){
+        //base case
+        if(word.length()==0){
+            root->isterminal=true;
+        }
+        //asumption the word will be in small case
+        int index = word[0]-'a';
+        TrieNode* child;
+
+        if(root->children[index] !=NULL){
+            //present
+            child = root->children[index];
+        }else{
+            child = new TrieNode(word[0]);
+            root->children[index]= child;
+        }
+        //recursion
+        insertUtil(child,word.substr(1));
 
     }
 
