@@ -29,6 +29,7 @@ void levelorder(Node* root){
     int n = level(root);
     for(int i = 1 ; i <= n; i++){
         nthlevel(root,1,i);
+        cout<<endl;
     }
 }
 
