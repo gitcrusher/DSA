@@ -13,11 +13,23 @@ class Node{
     }
 };
 
+int level(Node* root){
+    if(root==nullptr)return 0;
+    return 1+max(level(root->left),level(root->right));
+}
+
 void nthlevel(Node* root,int curr, int level){
     if(root==NULL)return;
     if(curr==level)cout<< root->data<<" ";
     nthlevel(root->left,curr+1,level);
     nthlevel(root->right,curr+1,level);
+}
+
+void levelorder(Node* root){
+    int n = level(root);
+    for(int i = 1 ; i <= n; i++){
+        nthlevel(root,1,i);
+    }
 }
 
 int main(){
@@ -36,7 +48,7 @@ int main(){
     c->left = f;
     c->right = g;
 
-    nthlevel(a,1,3);
+    levelorder(a);
 
     return 0;
 }
