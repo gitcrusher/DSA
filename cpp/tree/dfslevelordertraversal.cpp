@@ -13,6 +13,8 @@ class Node{
     }
 };
 
+//ye brute force hota hai
+
 int level(Node* root){
     if(root==nullptr)return 0;
     return 1+max(level(root->left),level(root->right));
